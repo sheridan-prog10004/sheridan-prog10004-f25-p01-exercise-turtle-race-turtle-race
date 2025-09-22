@@ -3,8 +3,11 @@ Version 1: In this version, the turtle race has a falt single-file structure
 """
 
 #access the libraries/modules required for the program
+import turtle
 
 #create the race track/window where the race takes place
+raceTrack = turtle.Screen()
+raceTrack.bgcolor("lightgreen")
 
 #create the racers
 
@@ -17,3 +20,4 @@ Version 1: In this version, the turtle race has a falt single-file structure
 #announce the winner
 
 #wait for the user to click before exiting
+raceTrack.exitonclick()
