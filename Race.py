@@ -1,16 +1,14 @@
 """
-Version 1: In this version, the turtle race has a falt single-file structure
+Manages the race logic and the racers by creating them and having them
+compete with each other. Module functions determine and announce the winner
 """
-
-#access the libraries/modules required for the program
 import turtle
 import random
 
-#create the race track/window where the race takes place
-def createRaceTrack():
-    raceTrack = turtle.Screen()
-    raceTrack.bgcolor("lightgreen")
-    return raceTrack
+#define the module variables
+leo = None
+mikey = None
+don = None
 
 def createRacer(color):
     racer = turtle.Turtle()
@@ -22,12 +20,13 @@ def createRacer(color):
 
 #create the racer variables/objects
 def registerRacers():
+    global leo, mikey, don
     leo = createRacer("darkgreen")
     mikey = createRacer("darkred")
     don = createRacer("blue")
 
 #position the racers on the starting line
-def positionRacers(leo, mikey, don):
+def positionRacers():
     leo.left(180)
     leo.forward(200)
     leo.right(90)
@@ -43,7 +42,7 @@ def positionRacers(leo, mikey, don):
     don.pendown()
 
 #run the race
-def runRace(leo, mikey, don):
+def runRace():
     dist = random.randint(10, 100)
     leo.forward(dist)
 
@@ -54,18 +53,8 @@ def runRace(leo, mikey, don):
     don.forward(dist)
 
 #determine the winner
-def determineWinner(leo, mikey, done):
+def determineWinner():
     #TODO: Implement determining winner
 
     #announce the winner
     pass
-
-#run the main program statements
-raceTrack = createRaceTrack()
-racer1, racer2, racer3 = registerRacers()
-positionRacers(racer1, racer2, racer3)
-runRace(racer1, racer2, racer3)
-determineWinner(racer1, racer2, racer3)
-
-#wait for the user to click before exiting
-raceTrack.exitonclick()
