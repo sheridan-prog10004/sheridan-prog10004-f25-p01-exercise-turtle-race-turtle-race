@@ -12,26 +12,19 @@ def createRaceTrack():
     raceTrack.bgcolor("lightgreen")
     return raceTrack
 
+def createRacer(color):
+    racer = turtle.Turtle()
+    racer.shape("turtle")
+    racer.shapesize(3,3,1)
+    racer.color(color)
+    racer.penup()
+    return racer
+
 #create the racer variables/objects
 def registerRacers():
-    leo = turtle.Turtle()
-    leo.shape("turtle")
-    leo.shapesize(3,3,1)
-    leo.color("darkgreen")
-    leo.penup()
-
-    mikey = turtle.Turtle()
-    mikey.shape("turtle")
-    mikey.shapesize(3, 3, 1)
-    mikey.color("darkred")
-    mikey.penup()
-
-    don = turtle.Turtle()
-    don.shape("turtle")
-    don.shapesize(3, 3, 1)
-    don.color("blue")
-    don.penup()
-    return leo,mikey,don
+    leo = createRacer("darkgreen")
+    mikey = createRacer("darkred")
+    don = createRacer("blue")
 
 #position the racers on the starting line
 def positionRacers(leo, mikey, don):
