@@ -11,7 +11,9 @@ import RaceTrack
 leo = None
 mikey = None
 don = None
-TURTLE_HEIGHT = 50
+TURTLE_WIDTH = 50
+TURTLE_HEIGHT = 75
+DEFAULT_RACER_DISTANCE = 200
 
 def createRacer(color):
     racer = turtle.Turtle()
@@ -28,15 +30,32 @@ def registerRacers():
     mikey = createRacer("darkred")
     don = createRacer("blue")
 
+def askForRacerDistance():
+    """Asks the user for the distance between racers and performs validation. The default
+       distance if the user cancels is 200
+    """
+    racerDist = turtle.numinput("Turtle Race", "Please enter the distance between racers:", 
+                                DEFAULT_RACER_DISTANCE, 
+                                TURTLE_WIDTH,
+                                RaceTrack.raceTrack.window_width() / 2 - TURTLE_WIDTH/2)
+    if racerDist == None:
+        racerDist = 200
+
+    return racerDist    
+
 #position the racers on the starting line
 def positionRacers():
+    """Positions the racers on the starting line"""
+
+    racerDist = askForRacerDistance()
+
     leo.left(180)
-    leo.forward(200)
+    leo.forward(racerDist)
     leo.right(90)
 
     mikey.left(90)
 
-    don.forward(200)
+    don.forward(racerDist)
     don.left(90)
 
     #prepare the racers for the race
